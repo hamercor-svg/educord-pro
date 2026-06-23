@@ -1,0 +1,28 @@
+<!-- POPUP DE INICIO -->
+<div id="popup-inicio" class="popup-overlay">
+  <div class="popup-contenido">
+    <button class="cerrar-popup" onclick="cerrarPopup()">✕</button>
+
+    <img src="https://via.placeholder.com/500x250" alt="Post destacado">
+
+    <h2>Bienvenido a mi página</h2>
+
+    <p>
+      Aquí puedes colocar promociones, anuncios, novedades
+      o cualquier contenido importante.
+    </p>
+
+    <a href="#" class="btn-popup">Ver más</a>
+  </div>
+</div>
+
+<script>
+  function cerrarPopup() {
+    document.getElementById("popup-inicio").style.display = "none";
+  }
+
+  // Mostrar siempre al recargar
+  window.onload = function () {
+    document.getElementById("popup-inicio").style.display = "flex";
+  };
+</script>

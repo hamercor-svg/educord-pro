@@ -1,0 +1,89 @@
+/* FONDO OSCURO */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* CONTENIDO */
+.popup-contenido {
+  background: #fff;
+  width: 90%;
+  max-width: 550px;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  animation: aparecer 0.3s ease;
+}
+
+/* IMAGEN */
+.popup-contenido img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+/* TITULO */
+.popup-contenido h2 {
+  margin-bottom: 10px;
+  color: #222;
+}
+
+/* TEXTO */
+.popup-contenido p {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* BOTON */
+.btn-popup {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.btn-popup:hover {
+  background: #0056b3;
+}
+
+/* BOTON CERRAR */
+.cerrar-popup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: #eee;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.cerrar-popup:hover {
+  background: #ddd;
+}
+
+/* ANIMACION */
+@keyframes aparecer {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

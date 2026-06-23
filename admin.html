@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Administración - EduCORD Pro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* Estilos basados en tu diseño principal para mantener la armonía */
+    :root {
+      --bg: #0b0f1a;
+      --card: #1a2235;
+      --border: #1e2d45;
+      --accent1: #3b82f6;
+      --text: #e2e8f0;
+      --muted: #64748b;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .admin-container {
+      width: 100%;
+      max-width: 900px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      color: var(--accent1);
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
+
+    p {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    /* Diseño de la tabla */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background-color: rgba(59, 130, 246, 0.1);
+      color: var(--accent1);
+      font-weight: 500;
+    }
+
+    tr:hover {
+      background-color: rgba(255, 255, 255, 0.02);
+    }
+
+    .empty-message {
+      text-align: center;
+      padding: 30px;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* Botón para regresar */
+    .btn-volver {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 10px 20px;
+      background: var(--border);
+      color: var(--text);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .btn-volver:hover {
+      background: var(--accent1);
+    }
+
+/* Botón para eliminar un solo usuario */
+    .btn-eliminar-uno {
+      background: rgba(239, 68, 68, 0.1);
+      color: #ef4444;
+      border: 1px solid #ef4444;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-family: 'DM Sans', sans-serif;
+      transition: all 0.2s;
+    }
+
+    .btn-eliminar-uno:hover {
+      background: #ef4444;
+      color: white;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="admin-container">
+    <h1>Base de Datos de Usuarios</h1>
+    <p>Lista de estudiantes registrados en EduCORD Pro.</p>
+
+    <table>
+       <thead>
+        <tr>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Correo Electrónico</th>
+          <th>Grado</th>
+          <th>Acciones</th> </tr>
+      </thead>
+      <tbody id="tabla-usuarios-body">
+        </tbody>
+    </table>
+
+    <div style="margin-top: 25px; display: flex; gap: 15px;">
+  <a href="index.html" class="btn-volver">← Volver a la página principal</a>
+  
+  <button onclick="resetearBaseDatos()" style="background: #ef4444; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-family: 'DM Sans', sans-serif;">
+    ⚠️ Borrar todos los datos
+  </button>
+</div>
+  </div>
+
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+<script>
+  // 2. PEGA AQUÍ MISMO TUS CREDENCIALES REALES DE FIREBASE (Las mismas de tu index)
+  const firebaseConfig = {
+    apiKey: "TU_API_KEY_REAL",
+    authDomain: "educord-pro.firebaseapp.com",
+    projectId: "educord-pro",
+    storageBucket: "educord-pro.appspot.com",
+    messagingSenderId: "TU_SENDER_ID",
+    appId: "TU_APP_ID"
+  };
+
+  // Inicializar la conexión con la nube
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+  
+  // Apuntamos al cuerpo de tu tabla (Asegúrate de que tu <tbody> tenga id="tabla-usuarios-body")
+  const tablaBody = document.getElementById('tabla-usuarios-body');
+
+  // 3. LEER LOS ALUMNOS EN TIEMPO REAL DESDE LA NUBE
+  // Usamos .onSnapshot para que la tabla se actualice sola en tu pantalla apenas alguien cree una cuenta
+  db.collection("usuarios").orderBy("fechaRegistro", "desc").onSnapshot((querySnapshot) => {
+    tablaBody.innerHTML = ""; // Limpiamos la tabla antes de rellenar
+    
+    if (querySnapshot.empty) {
+      tablaBody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:20px; color:var(--muted);">No hay estudiantes registrados en la nube todavía.</td></tr>`;
+      return;
+    }
+
+    let contador = 1;
+    querySnapshot.forEach((doc) => {
+      const usuario = doc.data();
+      const idDocumento = doc.id; // El ID único que Firebase le asigna a cada fila en internet
+      let textoGrado = usuario.grado ? `${usuario.grado}º Secundaria` : 'No especificado';
+
+      tablaBody.innerHTML += `
+        <tr>
+          <td>${contador++}</td>
+          <td>${usuario.nombre}</td>
+          <td>${usuario.apellido}</td>
+          <td>${usuario.email}</td>
+          <td>${textoGrado}</td>
+          <td>
+            <button onclick="eliminarUsuarioCloud('${idDocumento}')" class="btn-eliminar-uno">Eliminar</button>
+          </td>
+        </tr>
+      `;
+    });
+  });
+
+  // 4. FUNCIÓN PARA ELIMINAR UN ESTUDIANTE DE LA NUBE
+  function eliminarUsuarioCloud(id) {
+    if (confirm("¿Estás seguro de que deseas eliminar permanentemente a este estudiante de la nube?")) {
+      db.collection("usuarios").doc(id).delete()
+        .then(() => {
+          alert("Estudiante eliminado de la nube con éxito.");
+        })
+        .catch((error) => {
+          console.error("Error al eliminar:", error);
+          alert("No se pudo eliminar el registro: " + error);
+        });
+    }
+  }
+</script>
+
+</body>
+</html>
