@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aula Virtual - EduCORD Pro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="grado1.css"/>
+</head>
+<body>
+
+  <header class="top-bar">
+<div class="top-left">
+<button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+<div>
+<span class="top-logo">EduCORD Pro - 2026</span>
+<span class="top-version">v1.26</span>
+</div>
+</div>
+<div class="top-right">
+
+<div class="top-search">
+<i class="fas fa-search"></i>
+<input type="text" placeholder="Buscar cursos, tareas...">
+</div>
+
+<button class="top-icon">
+<i class="fas fa-bell"></i>
+<span class="notify">3</span>
+</button>
+
+<button class="top-icon">
+<i class="fas fa-envelope"></i>
+</button>
+
+<div class="user-badge">
+<div class="user-avatar" id="user-avatar">E</div>
+<div class="user-data">
+<span class="user-name" id="display-name">ESTUDIANTE</span>
+<small>Estudiante</small>
+</div>
+</div>
+
+<button class="btn-logout" onclick="cerrarSesion()">
+<i class="fas fa-right-from-bracket"></i>
+</button>
+
+</div>
+  </header>
+
+  <aside class="sidebar">
+<ul class="side-menu">
+<li>
+<button class="menu-btn active" onclick="verSeccion('dashboard',this)">
+<i class="fas fa-house"></i>
+<span>Dashboard</span>
+</button>
+</li>
+<li>
+<button class="menu-btn" onclick="verSeccion('perfil',this)">
+<i class="fas fa-user"></i>
+<span>Mi Perfil</span>
+</button>
+</li>
+<li>
+<button class="menu-btn" onclick="verSeccion('areas',this)">
+<i class="fas fa-book-open"></i>
+<span>Mis Áreas</span>
+</button>
+</li>
+<li>
+<button class="menu-btn" onclick="verSeccion('notas',this)">
+<i class="fas fa-chart-line"></i>
+<span>Notas</span>
+</button>
+</li>
+<li>
+<button class="menu-btn" onclick="verSeccion('calendario',this)">
+<i class="fas fa-calendar-days"></i>
+<span>Calendario</span>
+</button>
+</li>
+</ul>
+  </aside>
+
+  <main class="main-content">
+<section id="sec-dashboard" class="module-section active">
+<h2 class="section-title">👋 Bienvenido <span id="dashboard-user">Estudiante</span></h2>
+<p id="fecha-dashboard" class="section-sub">Cargando fecha...</p>
+<div class="dashboard-header">
+<div class="student-profile-card">
+<div class="student-profile">
+<div class="student-avatar" id="student-avatar">E</div>
+<div>
+<h2 id="student-fullname">Estudiante</h2>
+<p id="student-grade">1° de Secundaria</p>
+</div>
+</div>
+<div class="xp-container">
+<div class="xp-info">
+<span>Nivel 12</span>
+<span>2450 / 3000 XP</span>
+</div>
+<div class="xp-bar">
+<div class="xp-fill"></div>
+</div>
+</div>
+</div>
+<div class="clock-card">
+<div id="dashboard-hora">00:00:00</div>
+<span id="saludo-dashboard">Bienvenido</span>
+</div>
+</div>
+
+<div class="summary-grid">
+<div class="summary-card">
+<h4>📚 Cursos</h4>
+<strong>11</strong>
+</div>
+<div class="summary-card">
+<h4>📝 Tareas</h4>
+<strong>3</strong>
+</div>
+<div class="summary-card">
+<h4>⭐ Promedio</h4>
+<strong>18</strong>
+</div>
+</div>
+
+<div class="dashboard-main">
+<div class="dashboard-left">
+<div class="card">
+<h3>🔔 Notificaciones</h3>
+<div class="notification-item">
+<div class="notification-icon">📚</div>
+<div>
+<strong>Nueva tarea de Matemática</strong>
+<p>Disponible hasta el viernes.</p>
+</div>
+</div>
+<div class="notification-item">
+<div class="notification-icon">📝</div>
+<div>
+<strong>Se publicó una calificación</strong>
+<p>Comunicación - 18 puntos.</p>
+</div>
+</div>
+<div class="notification-item">
+<div class="notification-icon">🎥</div>
+<div>
+<strong>Nuevo video disponible</strong>
+<p>Ciencia y Tecnología.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="dashboard-right">
+<div class="card">
+<h3>📈 Progreso por cursos</h3>
+
+<div class="progress-course">
+<label>Matemática</label>
+<div class="progress-line">
+<div style="width:88%"></div>
+</div>
+<span>88%</span>
+</div>
+
+<div class="progress-course">
+<label>Comunicación</label>
+<div class="progress-line">
+<div style="width:72%"></div>
+</div>
+<span>72%</span>
+</div>
+
+<div class="progress-course">
+<label>Ciencia</label>
+<div class="progress-line">
+<div style="width:94%"></div>
+</div>
+<span>94%</span>
+</div>
+
+<div class="progress-course">
+<label>Inglés</label>
+<div class="progress-line">
+<div style="width:65%"></div>
+</div>
+<span>65%</span>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="progress-card">
+<h3>📈 Progreso General</h3>
+<div class="progress-circle">
+<svg width="170" height="170">
+<circle class="bg" cx="85" cy="85" r="65"></circle>
+<circle class="progress" cx="85" cy="85" r="65"></circle>
+</svg>
+<div class="progress-value">72%</div>
+</div>
+<p class="progress-description">Has completado el 72% del contenido disponible.</p>
+</div>
+
+<div class="dashboard-panels">
+<div class="panel-card">
+<h3>📅 Próximas actividades</h3>
+<div class="panel-item">
+<span>Matemática</span>
+<strong>09:00 AM</strong>
+</div>
+<div class="panel-item">
+<span>Comunicación</span>
+<strong>11:00 AM</strong>
+</div>
+<div class="panel-item">
+<span>Ciencia</span>
+<strong>Viernes</strong>
+</div>
+</div>
+
+<div class="panel-card">
+<h3>🏆 Últimos logros</h3>
+<div class="badge-item">🥇 Mejor asistencia</div>
+<div class="badge-item">⭐ Nivel 12 alcanzado</div>
+<div class="badge-item">🔥 7 días consecutivos</div>
+</div>
+
+<div class="quick-access">
+<div class="card">
+<h3>⚡ Accesos rápidos</h3>
+<div class="quick-grid">
+<button class="quick-btn">
+<div class="quick-icon">📚</div>
+<span>Mis Cursos</span>
+</button>
+<button class="quick-btn">
+<div class="quick-icon">📝</div>
+<span>Tareas</span>
+</button>
+<button class="quick-btn">
+<div class="quick-icon">🎥</div>
+<span>Videos</span>
+</button>
+<button class="quick-btn">
+<div class="quick-icon">📊</div>
+<span>Notas</span>
+</button>
+<button class="quick-btn">
+<div class="quick-icon">📅</div>
+<span>Calendario</span>
+</button>
+<button class="quick-btn">
+<div class="quick-icon">🤖</div>
+<span>Tutor IA</span>
+</button>
+<button class="quick-btn">
+<div class="quick-icon">🏆</div>
+<span>Logros</span>
+</button>
+<button class="quick-btn">
+<div class="quick-icon">⚙️</div>
+<span>Configuración</span>
+</button>
+</div>
+</div>
+</div>
+
+<div class="dashboard-stats">
+<div class="card">
+<h3>📈 Rendimiento semanal</h3>
+<div class="week-chart">
+<div class="day">
+<div class="bar" style="height:55%"></div>
+<span>L</span>
+</div>
+<div class="day">
+<div class="bar" style="height:80%"></div>
+<span>M</span>
+</div>
+<div class="day">
+<div class="bar" style="height:65%"></div>
+<span>Mi</span>
+</div>
+<div class="day">
+<div class="bar" style="height:92%"></div>
+<span>J</span>
+</div>
+<div class="day">
+<div class="bar" style="height:72%"></div>
+<span>V</span>
+</div>
+<div class="day">
+<div class="bar" style="height:40%"></div>
+<span>S</span>
+</div>
+<div class="day">
+<div class="bar" style="height:30%"></div>
+<span>D</span>
+</div>
+</div>
+</div>
+
+<div class="card">
+<h3>🏆 Actividad reciente</h3>
+<div class="timeline">
+
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div>
+<strong>Terminaste Matemática</strong>
+<p>Hace 15 minutos</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div>
+<strong>Obtuviste una insignia</strong>
+<p>Hoy</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div>
+<strong>Subiste una tarea</strong>
+<p>Ayer</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div>
+<strong>Próximo examen</strong>
+<p>Viernes</p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+</section>
+    <section id="sec-perfil" class="module-section">
+      <h2 class="section-title">Mi Perfil</h2>
+      <p class="section-sub">Información personal y académica registrada en el sistema.</p>
+      
+      <div class="profile-card">
+        <div class="profile-item">
+          <label>Nombres Completos</label>
+          <div id="prof-nombre">Cargando...</div>
+        </div>
+        <div class="profile-item">
+          <label>Correo Electrónico</label>
+          <div id="prof-email">Cargando...</div>
+        </div>
+        <div class="profile-item">
+          <label>Grado Actual</label>
+          <div id="prof-grado">Cargando...</div>
+        </div>
+        <div class="profile-item">
+          <label>Estado de Cuenta</label>
+          <div style="color: var(--accent4);">Activo / Verificado</div>
+        </div>
+      </div>
+    </section>
+
+<section id="sec-areas" class="module-section">
+<h2 class="section-title">Mis Áreas</h2>
+<p class="section-sub">Selecciona un curso para ingresar.</p>
+
+<div class="areas-grid">
+
+<div class="area-card" onclick="abrirCurso('Matemática','📐')">
+<div class="area-icon">📐</div>
+<h3>Matemática</h3>
+<p>Álgebra, geometría, estadística y resolución de problemas.</p>
+</div>
+
+<div class="area-card" onclick="abrirCurso('Comunicación','📖')">
+<div class="area-icon">📖</div>
+<h3>Comunicación</h3>
+<p>Comprensión lectora, producción de textos y literatura.</p>
+</div>
+
+<div class="area-card" onclick="abrirCurso('Ciencia y Tecnología','🔬')">
+<div class="area-icon">🔬</div>
+<h3>Ciencia y Tecnología</h3>
+<p>Biología, física, química e investigación científica.</p>
+</div>
+
+<div class="area-card" onclick="abrirCurso('Ciencias Sociales','🏛️')">
+<div class="area-icon">🏛️</div>
+<h3>Ciencias Sociales</h3>
+<p>Historia, geografía, ciudadanía y desarrollo social.</p>
+</div>
+
+<div class="area-card" onclick="abrirCurso('Inglés','🌐')">
+<div class="area-icon">🌐</div>
+<h3>Inglés</h3>
+<p>Listening, speaking, reading y writing.</p>
+</div>
+
+<div class="area-card" onclick="abrirCurso('Arte y Cultura','🎨')">
+<div class="area-icon">🎨</div>
+<h3>Arte y Cultura</h3>
+<p>Creatividad, expresión artística y patrimonio cultural.</p>
+</div>
+
+<div class="area-card" onclick="abrirCurso('Educación Física','⚽')">
+<div class="area-icon">⚽</div>
+<h3>Educación Física</h3>
+<p>Actividad física, salud y trabajo en equipo.</p>
+</div>
+
+<div class="area-card" onclick="abrirCurso('Educación para el Trabajo','💻')">
+<div class="area-icon">💻</div>
+<h3>Educación para el Trabajo</h3>
+<p>Emprendimiento, tecnología e innovación.</p>
+</div>
+
+<div class="area-card" onclick="abrirCurso('DPCC','🤝')">
+<div class="area-icon">🤝</div>
+<h3>DPCC</h3>
+<p>Desarrollo personal, ciudadanía y convivencia.</p>
+</div>
+
+<div class="area-card" onclick="abrirCurso('Tutoría','🌱')">
+<div class="area-icon">🌱</div>
+<h3>Tutoría</h3>
+<p>Orientación personal, académica y socioemocional.</p>
+</div>
+
+<div class="area-card" onclick="abrirCurso('Educación Religiosa','🕊️')">
+<div class="area-icon">🕊️</div>
+<h3>Educación Religiosa</h3>
+<p>Valores, espiritualidad y formación ética.</p>
+</div>
+
+</div>
+<div id="curso-view" class="curso-view">
+  <div class="curso-banner">
+<div class="curso-banner-left">
+<div class="curso-banner-icon" id="curso-icono">📚</div>
+<div>
+<h2 id="curso-nombre">Curso</h2>
+<p>Espacio virtual de aprendizaje</p>
+</div>
+</div>
+<div class="curso-banner-right">
+<button class="curso-action">📄 Material</button>
+<button class="curso-action">📝 Tareas</button>
+<button class="curso-action">📊 Progreso</button>
+</div>
+</div>
+
+<div class="curso-header">
+<button class="btn-volver" onclick="cerrarCurso()">← Volver</button>
+<div class="curso-title">
+<div id="curso-icono" class="curso-icono">📚</div>
+<div>
+<h2 id="curso-nombre">Curso</h2>
+<p>Materiales, tareas, videos y recursos del curso.</p>
+</div>
+</div>
+</div>
+<div class="curso-news">
+<h3>📢 Anuncios del curso</h3>
+
+<div class="news-item">
+<div class="news-date">HOY</div>
+<div class="news-content">
+<strong>Bienvenido al curso</strong>
+<p>El docente publicará aquí avisos importantes.</p>
+</div>
+</div>
+
+<div class="news-item">
+<div class="news-date">AYER</div>
+<div class="news-content">
+<strong>Material actualizado</strong>
+<p>Se agregó nuevo contenido para esta semana.</p>
+</div>
+</div>
+
+</div>
+<div class="recent-files">
+<h3>📂 Archivos recientes</h3>
+
+<div class="file-item">
+<div class="file-icon">📄</div>
+<div class="file-info">
+<strong>Guía Semana 1.pdf</strong>
+<span>Publicado hace 2 horas</span>
+</div>
+<button>Descargar</button>
+</div>
+
+<div class="file-item">
+<div class="file-icon">📊</div>
+<div class="file-info">
+<strong>Presentación.pptx</strong>
+<span>Publicado ayer</span>
+</div>
+<button>Abrir</button>
+</div>
+
+<div class="file-item">
+<div class="file-icon">🎥</div>
+<div class="file-info">
+<strong>Clase Grabada.mp4</strong>
+<span>Publicado hace 3 días</span>
+</div>
+<button>Ver</button>
+</div>
+
+</div>
+<div class="curso-body">
+<div id="tab-material" class="tab-content active">
+<div class="curso-info-card">
+<div class="curso-info-left">
+<div class="curso-profesor">👨‍🏫 Docente: <strong>Por asignar</strong></div>
+<div class="curso-progreso">
+<label>Progreso del curso</label>
+<div class="curso-bar">
+<div class="curso-bar-fill"></div>
+</div>
+<span>72% completado</span>
+</div>
+</div>
+<div class="curso-info-right">
+<div class="curso-stat">
+<strong>12</strong>
+<span>Clases</span>
+</div>
+<div class="curso-stat">
+<strong>3</strong>
+<span>Tareas</span>
+</div>
+<div class="curso-stat">
+<strong>8</strong>
+<span>Archivos</span>
+</div>
+</div>
+</div>
+
+<div class="timeline-course">
+
+<div class="timeline-card">
+<div class="timeline-icon">📢</div>
+<div class="timeline-content">
+<h3>Bienvenido al curso</h3>
+<p>Encontrarás aquí todo el material publicado por tu docente.</p>
+<small>Hace 2 días</small>
+</div>
+</div>
+
+<div class="timeline-card">
+<div class="timeline-icon">📄</div>
+<div class="timeline-content">
+<h3>PDF - Introducción</h3>
+<p>Lectura obligatoria antes de la siguiente clase.</p>
+<button class="timeline-btn">Abrir documento</button>
+</div>
+</div>
+
+<div class="timeline-card">
+<div class="timeline-icon">🎥</div>
+<div class="timeline-content">
+<h3>Video de la semana</h3>
+<p>Duración: 18 minutos.</p>
+<button class="timeline-btn">Ver video</button>
+</div>
+</div>
+
+<div class="timeline-card">
+<div class="timeline-icon">📝</div>
+<div class="timeline-content">
+<h3>Tarea Nº1</h3>
+<p>Fecha límite: viernes.</p>
+<button class="timeline-btn">Resolver tarea</button>
+</div>
+</div>
+
+</div>
+</div>
+<div id="tab-videos" class="tab-content">
+<div class="video-grid">
+<div class="video-card">
+<div class="video-thumb">🎥</div>
+<h3>Clase 1 - Introducción</h3>
+<p>Duración: 18 min</p>
+<button class="video-btn">▶ Ver video</button>
+</div>
+<div class="video-card">
+<div class="video-thumb">🎬</div>
+<h3>Clase 2 - Ejemplos</h3>
+<p>Duración: 24 min</p>
+<button class="video-btn">▶ Ver video</button>
+</div>
+<div class="video-card">
+<div class="video-thumb">📺</div>
+<h3>Clase 3 - Práctica</h3>
+<p>Duración: 32 min</p>
+<button class="video-btn">▶ Ver video</button>
+</div>
+</div>
+</div>
+<div id="tab-tareas" class="tab-content">
+<div class="task-card">
+<div class="task-status pendiente">Pendiente</div>
+<h3>Tarea N°1</h3>
+<p>Resolver los ejercicios de la página 24.</p>
+<button class="video-btn">Subir tarea</button>
+</div>
+<div class="task-card">
+<div class="task-status entregado">Entregado</div>
+<h3>Tarea N°2</h3>
+<p>Trabajo enviado correctamente.</p>
+<button class="video-btn">Ver entrega</button>
+</div>
+<div class="task-card">
+<div class="task-status calificado">Calificado</div>
+<h3>Tarea N°3</h3>
+<p>Calificación obtenida: 18/20.</p>
+<button class="video-btn">Ver comentarios</button>
+</div>
+</div>
+<div id="tab-recursos" class="tab-content">
+<div class="resource-card">
+<div>📄 Guía de estudio.pdf</div>
+<button class="video-btn">Descargar</button>
+</div>
+<div class="resource-card">
+<div>📊 Presentación.pptx</div>
+<button class="video-btn">Descargar</button>
+</div>
+<div class="resource-card">
+<div>📚 Libro Digital.pdf</div>
+<button class="video-btn">Descargar</button>
+</div>
+<div class="resource-card">
+<div>📝 Banco de preguntas.pdf</div>
+<button class="video-btn">Descargar</button>
+</div>
+</div>
+</div>
+</div>
+<div id="visor-material" style="display:none;margin-top:25px;">
+<div class="card">
+<h3 id="visor-titulo">Material del curso</h3>
+<iframe id="visor-pdf" src="" width="100%" height="700" style="border:none;border-radius:15px;background:#fff;"></iframe>
+</div>
+</div>
+<div id="visor-modal" class="visor-modal">
+<div class="visor-box">
+<div class="visor-header">
+<h3 id="visor-titulo">Visualizador</h3>
+<button class="visor-close" onclick="cerrarVisor()">✕</button>
+</div>
+<div class="visor-content" id="visor-contenido">
+</div>
+</div>
+</div>
+</section>
+
+    <section id="sec-notas" class="module-section">
+      <h2 class="section-title">Mis Notas</h2>
+      <p class="section-sub">Visualiza tu rendimiento académico del bimestre.</p>
+      <div class="profile-card" style="text-align: center; color: var(--muted);">
+        <p>Aún no hay calificaciones registradas en este periodo.</p>
+      </div>
+    </section>
+
+    <section id="sec-calendario" class="module-section">
+      <h2 class="section-title">Calendario Académico</h2>
+      <p class="section-sub">Eventos, tareas y evaluaciones próximas.</p>
+      
+      <div class="cal-item">
+        <div class="cal-date">21 y 22 de Abril, 2026</div>
+        <div><strong>JEDPA - Juegos Escolares Deportivos y Paradeportivos</strong></div>
+        <div style="font-size: 0.85rem; color: var(--muted); margin-top: 5px;">Participación obligatoria para las selecciones.</div>
+      </div>
+      
+      <div class="cal-item" style="border-color: var(--accent2);">
+        <div class="cal-date">Próximamente</div>
+        <div><strong>Inicio de Evaluaciones Mensuales</strong></div>
+      </div>
+    </section>
+    <section id="sec-curso" class="module-section">
+<div class="course-header">
+<div class="course-icon" id="cursoIcono">📚</div>
+<div>
+<h2 id="cursoTitulo">Curso</h2>
+<p id="cursoDescripcion">Materiales y actividades del curso.</p>
+</div>
+</div>
+<div class="course-tabs">
+<button class="course-tab active" onclick="mostrarTabCurso('materiales',this)">Materiales</button>
+<button class="course-tab" onclick="mostrarTabCurso('videos',this)">Videos</button>
+<button class="course-tab" onclick="mostrarTabCurso('tareas',this)">Tareas</button>
+<button class="course-tab" onclick="mostrarTabCurso('evaluaciones',this)">Evaluaciones</button>
+</div>
+<div id="tab-materiales" class="course-content active">
+<div class="resource-card">
+<h3>📄 Guía de aprendizaje</h3>
+<p>Aquí aparecerán los PDF del docente.</p>
+<button class="resource-btn">Abrir</button>
+</div>
+<div class="resource-card">
+<h3>📘 Lectura complementaria</h3>
+<p>Material de apoyo.</p>
+<button class="resource-btn">Abrir</button>
+</div>
+</div>
+<div id="tab-videos" class="course-content">
+<div class="resource-card">
+<h3>🎥 Video de la clase</h3>
+<p>Aquí aparecerán los videos.</p>
+<button class="resource-btn">Ver video</button>
+</div>
+</div>
+<div id="tab-tareas" class="course-content">
+<div class="resource-card">
+<h3>📝 Actividad</h3>
+<p>No existen tareas pendientes.</p>
+<button class="resource-btn">Entregar</button>
+</div>
+</div>
+<div id="tab-evaluaciones" class="course-content">
+<div class="resource-card">
+<h3>📊 Evaluación</h3>
+<p>No hay evaluaciones programadas.</p>
+<button class="resource-btn">Ingresar</button>
+</div>
+</div>
+</section>
+<section id="sec-curso" class="module-section">
+
+<h2 class="section-title">
+<span id="curso-icono">📚</span>
+<span id="curso-titulo">Curso</span>
+</h2>
+
+<p class="section-sub">
+Bienvenido al curso. Aquí encontrarás todos los recursos de aprendizaje.
+</p>
+
+<div class="profile-card" style="max-width:100%;">
+
+<h3>👨‍🏫 Docente</h3>
+<p style="margin-top:8px;color:var(--muted);">
+Profesor asignado al curso
+</p>
+
+<br>
+
+<h3>📈 Progreso</h3>
+
+<div class="progress-bar">
+<div class="progress-fill" style="width:68%;"></div>
+</div>
+
+<p class="progress-text">
+68% completado
+</p>
+
+<hr style="margin:25px 0;border:1px solid var(--border);">
+
+<div class="dashboard-panels">
+
+<div class="panel-card">
+<h3>📄 Materiales</h3>
+<p>PDF, diapositivas y documentos.</p>
+</div>
+
+<div class="panel-card">
+<h3>🎥 Videos</h3>
+<p>Clases grabadas y recursos multimedia.</p>
+</div>
+
+<div class="panel-card">
+<h3>📝 Tareas</h3>
+<p>Actividades y trabajos del curso.</p>
+</div>
+
+<div class="panel-card">
+<h3>📊 Calificaciones</h3>
+<p>Consulta tus notas del curso.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section id="curso-view" class="module-section">
+<h2 class="section-title" id="curso-titulo">Curso</h2>
+<p class="section-sub">Materiales y recursos disponibles.</p>
+
+<button class="volver-btn" onclick="volverAreas()">← Volver a Mis Áreas</button>
+
+<div class="curso-grid">
+
+<div class="curso-card">
+<div class="curso-icon">📄</div>
+<h3>Material PDF</h3>
+<p>Descarga el material del docente.</p>
+<button>Abrir</button>
+</div>
+
+<div class="curso-card">
+<div class="curso-icon">🎥</div>
+<h3>Video</h3>
+<p>Clase grabada.</p>
+<button>Ver</button>
+</div>
+
+<div class="curso-card">
+<div class="curso-icon">📝</div>
+<h3>Tarea</h3>
+<p>Enviar actividad.</p>
+<button>Ingresar</button>
+</div>
+
+<div class="curso-card">
+<div class="curso-icon">🧠</div>
+<h3>Evaluación</h3>
+<p>Resolver cuestionario.</p>
+<button>Comenzar</button>
+</div>
+
+</div>
+
+</section>
+  </main>
+
+
+
+  <!-- Firebase SDK (compat) -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="grado1.js"></script>
+</body>
+</html>

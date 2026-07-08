@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EduCORD – Pro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="index.css"/>
+</head>
+<body>
+<!-- POPUP DE INICIO -->
+<div id="popup-inicio" class="popup-overlay">
+  <div class="popup-contenido">
+    <button class="cerrar-popup" onclick="cerrarPopup()">✕</button>
+
+    <img src="../EduCORD Pro/img/imagen1.png" alt="Post destacado">
+
+    <h2>Bienvenido a EduCORD Pro</h2>
+
+    <p>Todo lo que necesitas para destacar en el colegio</p>
+
+    <a href="#" onclick="cerrarPopup()" class="btn-popup">Ver más</a>
+  </div>
+</div>
+<!-- ══════════════ NAV ══════════════ -->
+<nav>
+  <a href="#" class="nav-logo" onclick="showSection('inicio');return false;" id="nav-inicio">
+  <img src="../EduCORD Pro/img/Logo.png" alt="Logo EduCORD Pro" class="logo-img">
+  <span class="nav-logo-text">EduCORD<span>Pro</span></span>
+  </a>
+  <ul class="nav-menu" id="navMenu">
+    <li>
+      <a href="#" onclick="showSection('inicio');return false;" class="active-link" id="nav-inicio">Inicio</a>
+    </li>
+    <li>
+      <a href="#" onclick="showSection('nosotros');return false;" id="nav-nosotros">Nosotros</a>
+    </li>
+    <!-- GRADOS -->
+    <li id="dd-grados">
+      <button onclick="toggleDD('dd-grados')">
+        Grados <span class="chevron">▾</span>
+      </button>
+      <ul class="dropdown">
+        <li><a href="#" onclick="showSection('grados','1er Grado');return false;"><span class="dd-icon">1️⃣</span> 1er Grado</a></li>
+        <li><a href="#" onclick="showSection('grados','2do Grado');return false;"><span class="dd-icon">2️⃣</span> 2do Grado</a></li>
+        <li><a href="#" onclick="showSection('grados','3er Grado');return false;"><span class="dd-icon">3️⃣</span> 3er Grado</a></li>
+        <li><a href="#" onclick="showSection('grados','4to Grado');return false;"><span class="dd-icon">4️⃣</span> 4to Grado</a></li>
+        <li><a href="#" onclick="showSection('grados','5to Grado');return false;"><span class="dd-icon">5️⃣</span> 5to Grado</a></li>
+      </ul>
+    </li>
+    <!-- ÁREAS -->
+    <li id="dd-areas">
+      <button onclick="toggleDD('dd-areas')">
+        Áreas <span class="chevron">▾</span>
+      </button>
+      <ul class="dropdown">
+        <li><a href="#" onclick="showSection('areas','Matemática');return false;"><span class="dd-icon">📐</span> Matemática</a></li>
+        <li><a href="#" onclick="showSection('areas','Comunicación');return false;"><span class="dd-icon">📖</span> Comunicación</a></li>
+        <li><a href="#" onclick="showSection('areas','Ciencias');return false;"><span class="dd-icon">🔬</span> Ciencias</a></li>
+        <li><a href="#" onclick="showSection('areas','Historia');return false;"><span class="dd-icon">🏛️</span> Historia</a></li>
+        <li><a href="#" onclick="showSection('areas','Inglés');return false;"><span class="dd-icon">🌐</span> Inglés</a></li>
+        <li><a href="#" onclick="showSection('areas','Arte');return false;"><span class="dd-icon">🎨</span> Arte</a></li>
+        <li><a href="#" onclick="showSection('areas','Tecnología');return false;"><span class="dd-icon">💻</span> Tecnología</a></li>
+        <li><a href="#" onclick="showSection('areas','Educación Física');return false;"><span class="dd-icon">⚽</span> Ed. Física</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#" onclick="showSection('contacto');return false;" id="nav-contacto">Contacto</a>
+    </li>
+  </ul>
+  <div class="nav-right">
+    <button class="btn-ghost" onclick="openModal('soporte')" title="Panel administrativo">🛠️ Soporte</button>
+    <button class="btn-ghost" onclick="openModal('login')">Iniciar Sesión</button>
+    <button class="btn-solid" onclick="openModal('register')">Registrarse</button>
+  </div>
+</nav>
+<!-- ══════════════ MAIN ══════════════ -->
+<main>
+  <!-- ────── INICIO ────── -->
+  <section class="section-page active" id="page-inicio">
+    <div class="hero">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+            <div class="hero-badge">
+        <span class="dot"></span> Bienvenidos a EduCORD Pro
+      </div>
+<!-- ══════════════ SLIDER ══════════════ -->
+<div id="galeria">
+  <img id="imagenColegio" src="../EduCORD Pro/img/imagen1.png" alt="Colegio">
+</div>
+<h1 class="titulo-hover">
+  <span>A</span><span>p</span><span>r</span><span>e</span><span>n</span><span>d</span><span>e</span>
+  <span> </span>
+  <span>c</span><span>o</span><span>n</span>
+  <em>
+    <span>p</span><span>r</span><span>o</span><span>p</span><span>ó</span><span>s</span><span>i</span><span>t</span><span>o</span>
+  </em>,
+  <br>
+  <span>c</span><span>r</span><span>e</span><span>c</span><span>e</span>
+  <span> </span>
+  <span>s</span><span>i</span><span>n</span>
+  <em>
+    <span>l</span><span>í</span><span>m</span><span>i</span><span>t</span><span>e</span><span>s</span>
+  </em>
+</h1>
+
+<p class="texto-hover">
+  <span>R</span><span>e</span><span>c</span><span>u</span><span>r</span><span>s</span><span>o</span><span>s</span>
+  <span> </span>
+  <span>i</span><span>n</span><span>t</span><span>e</span><span>r</span><span>a</span><span>c</span><span>t</span><span>i</span><span>v</span><span>o</span><span>s</span>,
+  <span> </span>
+  <span>g</span><span>u</span><span>í</span><span>a</span><span>s</span>
+  <span> </span>
+  <span>p</span><span>o</span><span>r</span>
+  <span> </span>
+  <span>g</span><span>r</span><span>a</span><span>d</span><span>o</span>
+  <span> </span>
+  <span>y</span>
+  <span> </span>
+  <span>m</span><span>a</span><span>t</span><span>e</span><span>r</span><span>i</span><span>a</span><span>l</span><span>e</span><span>s</span>
+  <span> </span>
+  <span>e</span><span>n</span>
+  <span> </span>
+  <span>t</span><span>o</span><span>d</span><span>a</span><span>s</span>
+  <span> </span>
+  <span>l</span><span>a</span><span>s</span>
+  <span> </span>
+  <span>á</span><span>r</span><span>e</span><span>a</span><span>s</span>
+  <span> </span>
+  <span>d</span><span>e</span><span>l</span>
+  <span> </span>
+  <span>c</span><span>u</span><span>r</span><span>r</span><span>í</span><span>c</span><span>u</span><span>l</span><span>o</span>
+  <span> </span>
+  <span>n</span><span>a</span><span>c</span><span>i</span><span>o</span><span>n</span><span>a</span><span>l</span>.
+</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="openModal('register')">Empieza gratis →</button>
+        <button class="btn-outline" onclick="showSection('areas')">Ver áreas</button>
+      </div>
+      <div class="stats-bar">
+        <div class="stat"><div class="stat-n">5</div><div class="stat-l">Grados</div></div>
+        <div class="stat"><div class="stat-n">11</div><div class="stat-l">Áreas</div></div>
+        <div class="stat"><div class="stat-n">+100</div><div class="stat-l">Recursos</div></div>
+        <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Gratuito</div></div>
+      </div>
+    </div>
+    <!-- Características -->
+    <div class="section-inner">
+      <p class="section-tag">¿Por qué EduCORD Pro?</p>
+      <h2 class="section-title">Todo lo que necesitas<br>para destacar en el colegio</h2>
+      <p class="section-sub">Materiales alineados al currículo nacional, organizados por grado y área, con ejercicios prácticos y explicaciones claras.</p>
+      <div class="features-grid" data-reveal>
+        <div class="feat-card">
+          <div class="feat-icon" style="background:rgb(255, 255, 255);">📚</div>
+          <h3>Contenido por grado</h3>
+          <p>Materiales organizados del 1er al 5to grado de secundaria, adaptados al nivel de cada estudiante.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon" style="background:rgba(255, 255, 255);">🧩</div>
+          <h3>Ejercicios interactivos</h3>
+          <p>Practica con actividades diseñadas para reforzar cada tema antes de tus evaluaciones.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon" style="background:rgb(255, 255, 255);">🎯</div>
+          <h3>Aprendizaje guiado</h3>
+          <p>Rutas de estudio personalizadas que te llevan paso a paso desde lo básico hasta lo avanzado.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon" style="background:rgb(255, 255, 255);">📊</div>
+          <h3>Seguimiento de progreso</h3>
+          <p>Visualiza tu avance en cada área y mantén un registro de los temas dominados.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon" style="background:rgb(255, 255, 255);">🤝</div>
+          <h3>Comunidad de estudio</h3>
+          <p>Conéctate con otros estudiantes, comparte notas y resuelve dudas en comunidad.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon" style="background:rgb(255, 255, 255);">📱</div>
+          <h3>Acceso desde cualquier lugar</h3>
+          <p>Estudia desde tu celular, tablet o computadora. Sin descargas, sin complicaciones.</p>
+        </div>
+      </div>
+      <!-- Áreas disponibles -->
+      <p class="section-tag" style="margin-top:4rem;">Áreas disponibles</p>
+      <h2 class="section-title">Explora todas las áreas</h2>
+      <div class="areas-grid" data-reveal>
+        <a class="area-chip" href="#" onclick="showSection('areas','Matemática');return false;">
+          <span class="ac-icon">📐</span>
+          <div><div class="ac-name">Matemática</div><div class="ac-count">42 recursos</div></div>
+        </a>
+        <a class="area-chip" href="#" onclick="showSection('areas','Comunicación');return false;">
+          <span class="ac-icon">📖</span>
+          <div><div class="ac-name">Comunicación</div><div class="ac-count">35 recursos</div></div>
+        </a>
+        <a class="area-chip" href="#" onclick="showSection('areas','Ciencias');return false;">
+          <span class="ac-icon">🔬</span>
+          <div><div class="ac-name">Ciencias</div><div class="ac-count">38 recursos</div></div>
+        </a>
+        <a class="area-chip" href="#" onclick="showSection('areas','Historia');return false;">
+          <span class="ac-icon">🏛️</span>
+          <div><div class="ac-name">Historia</div><div class="ac-count">29 recursos</div></div>
+        </a>
+        <a class="area-chip" href="#" onclick="showSection('areas','Inglés');return false;">
+          <span class="ac-icon">🌐</span>
+          <div><div class="ac-name">Inglés</div><div class="ac-count">31 recursos</div></div>
+        </a>
+        <a class="area-chip" href="#" onclick="showSection('areas','Arte');return false;">
+          <span class="ac-icon">🎨</span>
+          <div><div class="ac-name">Arte</div><div class="ac-count">18 recursos</div></div>
+        </a>
+        <a class="area-chip" href="#" onclick="showSection('areas','Tecnología');return false;">
+          <span class="ac-icon">💻</span>
+          <div><div class="ac-name">Tecnología</div><div class="ac-count">24 recursos</div></div>
+        </a>
+        <a class="area-chip" href="#" onclick="showSection('areas','Educación Física');return false;">
+          <span class="ac-icon">⚽</span>
+          <div><div class="ac-name">Ed. Física</div><div class="ac-count">14 recursos</div></div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- ────── NOSOTROS ────── -->
+  <section class="section-page" id="page-nosotros">
+    <div class="section-inner">
+      <p class="section-tag">Quiénes somos</p>
+      <div class="nosotros-wrap" data-reveal>
+        <div>
+          <h2 class="section-title">Una plataforma hecha<br>por docentes, para estudiantes</h2>
+          <p class="section-sub">Nació en 2026 como respuesta a la educación remota. Hoy somos un equipo de docentes y diseñadores comprometidos con la equidad educativa en el Perú.</p>
+          <ul class="v-list">
+            <li><span class="check">✓</span> Contenido alineado al currículo nacional</li>
+            <li><span class="check">✓</span> Elaborado por docentes especializados</li>
+            <li><span class="check">✓</span> Revisado y actualizado cada año lectivo</li>
+            <li><span class="check">✓</span> 100% gratuito y sin publicidad</li>
+            <li><span class="check">✓</span> Compatible con cualquier dispositivo</li>
+          </ul>
+        </div>
+        <div class="visual-block">
+          <div class="v-card v1">
+            <div class="v-big">+1,000</div>
+            <div class="v-label">Estudiantes activos este mes</div>
+          </div>
+          <div class="v-card v2">
+            <div class="v-big">98%</div>
+            <div class="v-label">Satisfacción de usuarios</div>
+          </div>
+          <div class="v-card v3">
+            <div class="v-big">🏆</div>
+            <div class="v-label">Educación Digital 2026</div>
+          </div>
+        </div>
+      </div>
+
+<p class="section-tag" style="margin-top:4rem;">La educación es el motor que transforma el mundo</p>
+      <h2 class="section-title">Docente</h2>
+      
+      <div class="team-grid" data-reveal>
+        <div class="team-card-horizontal">
+          
+          <div class="teacher-photo-wrapper">
+            <img src="../EduCORD Pro/img/FotoDOCENTE.png" alt="Prof. Jamer Erick Córdova Chacón" class="teacher-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          </div>
+          
+          <div class="teacher-info">
+            <h4>Prof. Jamer Erick Córdova Chacón</h4>
+            <span class="teacher-specialty">Computación & Informática</span>
+            <p class="teacher-bio">Especialista en desarrollo educativo digital, metodologías de aprendizaje interactivo y branding institucional. Comprometido con la innovación pedagógica en el aula.</p>
+            
+            <div class="teacher-badges">
+              <span class="badge">Fundador</span>
+              <span class="badge">Docente Acompañante</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+  </section>
+
+  <!-- ────── GRADOS ────── -->
+<section class="section-page" id="page-grados">
+    <div class="section-inner">
+      <p class="section-tag" id="grados-tag">Nivel secundaria</p>
+      <h2 class="section-title" id="grados-title">Selecciona tu grado</h2>
+      <p class="section-sub" id="grados-sub">Contenido especializado para cada año de secundaria. Encuentra recursos exactamente donde estás.</p>
+
+      <div class="features-grid" id="grados-cursos-dinamicos" data-reveal style="display: none;"></div>
+
+      <div class="grados-grid" id="grados-grid-original" data-reveal>
+        <div class="grado-card gc-1">
+          <div class="grado-num">1</div>
+          <h3>1er Grado</h3>
+          <p>Fundamentos de las áreas principales. Ideal para iniciar la secundaria con bases sólidas.</p>
+          <div class="grado-tags">
+            <span class="tag">Aritmética</span>
+            <span class="tag">Comprensión lectora</span>
+            <span class="tag">Vida, Ecosistema</span>
+          </div>
+        </div>
+        <div class="grado-card gc-2">
+          <div class="grado-num">2</div>
+          <h3>2do Grado</h3>
+          <p>Consolidación de conocimientos e introducción a conceptos más complejos en ciencias y letras.</p>
+          <div class="grado-tags">
+            <span class="tag">Álgebra básica</span>
+            <span class="tag">Producción textual</span>
+            <span class="tag">Geografía</span>
+          </div>
+        </div>
+        <div class="grado-card gc-3">
+          <div class="grado-num">3</div>
+          <h3>3er Grado</h3>
+          <p>Desarrollo del pensamiento crítico y habilidades analíticas para resolver problemas complejos.</p>
+          <div class="grado-tags">
+            <span class="tag">Geometría</span>
+            <span class="tag">Literatura</span>
+            <span class="tag">Historia del Perú</span>
+          </div>
+        </div>
+        <div class="grado-card gc-4">
+          <div class="grado-num">4</div>
+          <h3>4to Grado</h3>
+          <p>Preparación para los temas avanzados y fortalecimiento de competencias para la vida universitaria.</p>
+          <div class="grado-tags">
+            <span class="tag">Trigonometría</span>
+            <span class="tag">Física</span>
+            <span class="tag">Química</span>
+          </div>
+        </div>
+        <div class="grado-card gc-5">
+          <div class="grado-num">5</div>
+          <h3>5to Grado</h3>
+          <p>Repaso integral y preparación para el examen de admisión universitaria y el futuro profesional.</p>
+          <div class="grado-tags">
+            <span class="tag">Preuniversitario</span>
+            <span class="tag">Razonamiento</span>
+            <span class="tag">Simulacros</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ────── ÁREAS ────── -->
+  <section class="section-page" id="page-areas">
+    <div class="section-inner">
+      <p class="section-tag">Contenido curricular</p>
+      <h2 class="section-title" id="areas-title">Todas las Áreas</h2>
+      <p class="section-sub" id="areas-sub">Explora recursos, ejercicios y materiales de estudio organizados por cada área del currículo nacional.</p>
+
+      <div class="features-grid" data-reveal id="areas-cards">
+        <!-- rendered by JS -->
+      </div>
+    </div>
+  </section>
+  <!-- ────── CONTACTO ────── -->
+  <section class="section-page" id="page-contacto">
+    <div class="section-inner">
+      <p class="section-tag">Contáctanos</p>
+      <div class="contact-wrap" data-reveal>
+        <div class="contact-info">
+          <h2 class="section-title">¿Tienes alguna<br>pregunta?</h2>
+          <p>Estamos aquí para ayudarte. Escríbenos y te responderemos en menos de 24 horas.</p>
+          <div class="c-item">
+            <div class="c-item-icon">📧</div>
+            <div class="c-item-text">
+              <strong>Correo electrónico</strong>
+              <span>educordpro@gmail.pe</span>
+            </div>
+          </div>
+          <div class="c-item">
+            <div class="c-item-icon">📞</div>
+            <div class="c-item-text">
+              <strong>Celular</strong>
+              <span>(+51) 910 292 775</span>
+            </div>
+          </div>
+          <div class="c-item">
+            <div class="c-item-icon">📍</div>
+            <div class="c-item-text">
+              <strong>Dirección</strong>
+              <span>Lima, Perú</span>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form">
+          <h3 style="font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:1.5rem;">Envíanos un mensaje</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nombre</label>
+              <input type="text" placeholder="Ejm: Jamer Erick"/>
+            </div>
+            <div class="form-group">
+              <label>Apellido</label>
+              <input type="text" placeholder="Ejm: Cordova Chacon"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Correo electrónico</label>
+            <input type="email" placeholder="tucorreo@gmail.com"/>
+          </div>
+          <div class="form-group">
+            <label>Asunto</label>
+            <select>
+              <option>Consulta general</option>
+              <option>Problema técnico</option>
+              <option>Sugerencia</option>
+              <option>Colaboración</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Mensaje</label>
+            <textarea placeholder="Escribe tu mensaje aquí..."></textarea>
+          </div>
+          <button class="btn-primary" style="width:100%;" onclick="alert('¡Mensaje enviado! Te responderemos pronto.')">Enviar mensaje →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+  <!-- ══════════════ FOOTER ══════════════ -->
+<footer class="main-footer">
+    <div class="footer-container">
+      
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="../EduCORD Pro/img/Logo.png" alt="Logo EduCORD Pro" class="logo-img">
+          <span class="nav-logo-text">EduCORD<span>Pro</span></span>
+        </div>
+        <p class="footer-desc">
+          🚀 Potenciando el aprendizaje virtual con innovación tecnológica y estrategias pedagógicas modernas. ¡Más movimiento, menos pantallas! 🖥️❌
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <h4>🔍 Explorar</h4>
+        <ul>
+          <li><a href="#" onclick="showSection('inicio'); return false;"><span class="i-emoji">🏠</span> Inicio</a></li>
+          <li><a href="#" onclick="showSection('nosotros'); return false;"><span class="i-emoji">✨</span> Nosotros</a></li>
+          <li><a href="#" onclick="showSection('contacto'); return false;"><span class="i-emoji">📞</span> Contactos</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>🎓 Aula Virtual</h4>
+        <ul>
+          <li><a href="#" onclick="openModal('login'); return false;"><span class="i-emoji">🔒</span> Iniciar Sesión</a></li>
+          <li><a href="admin.html" target="_blank"><span class="i-emoji">🛠️</span> Panel Admin</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 EduCORD Pro. Desarrollado con ❤️ para el futuro de la educación. 🌟</p>
+    </div>
+  </footer>
+
+<!-- ══════════════ MODALS ══════════════ -->
+<!-- LOGIN -->
+<div class="modal-overlay" id="modal-login">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('login')">✕</button>
+    <h2>Bienvenido de vuelta</h2>
+    <p>Inicia sesión para continuar tu aprendizaje</p>
+    
+    <form id="form-login-cloud" onsubmit="iniciarSesion(event)">
+      <div class="form-group">
+        <label>Correo electrónico</label>
+        <input type="email" id="login-email" placeholder="tucorreo@gmail.com" required/>
+      </div>
+      <div class="form-group">
+        <label>Contraseña</label>
+        <div style="position:relative;">
+          <input type="password" id="login-pass" placeholder="micontraseña" required style="width:100%;padding-right:2.5rem;"/>
+          <button type="button" id="toggle-login-pass" onclick="togglePasswordVisibility('login-pass','toggle-login-pass')"
+            aria-label="Mostrar u ocultar contraseña"
+            style="position:absolute;right:.5rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:1.1rem;padding:.25rem;line-height:1;">👁️</button>
+        </div>
+      </div>
+      <div style="text-align:right;margin-top:-.25rem;margin-bottom:.5rem;">
+        <a href="#" onclick="closeModal('login');openModal('recover');return false;" style="font-size:.875rem;">¿Olvidaste tu contraseña?</a>
+      </div>
+      <button type="submit" class="btn-primary" style="width:100%;margin-top:.5rem;">Iniciar sesión</button>
+    </form>
+    
+    <hr class="modal-divider"/>
+    <div class="modal-footer">
+      ¿No tienes cuenta? <a href="#" onclick="closeModal('login');openModal('register');return false;">Regístrate gratis</a>
+    </div>
+  </div>
+</div>
+
+<!-- RECUPERAR CONTRASEÑA -->
+<div class="modal-overlay" id="modal-recover">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('recover')">✕</button>
+    <h2 class="modal-title">Recuperar contraseña</h2>
+    <p style="margin-bottom:1rem;color:#555;font-size:.95rem;">Ingresa tu correo registrado y define una nueva contraseña para tu cuenta.</p>
+    <form id="form-recover" onsubmit="recuperarContrasena(event)">
+      <div class="form-group">
+        <label>Correo electrónico</label>
+        <input type="email" id="rec-email" placeholder="tucorreo@gmail.com" required/>
+      </div>
+      <div class="form-group">
+        <label>Nueva contraseña</label>
+        <div style="position:relative;">
+          <input type="password" id="rec-pass" placeholder="Mínimo 8 caracteres" minlength="8" required style="width:100%;padding-right:2.5rem;"/>
+          <button type="button" id="toggle-rec-pass" onclick="togglePasswordVisibility('rec-pass','toggle-rec-pass')"
+            aria-label="Mostrar u ocultar contraseña"
+            style="position:absolute;right:.5rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:1.1rem;padding:.25rem;line-height:1;">👁️</button>
+        </div>
+      </div>
+      <button type="submit" class="btn-primary" style="width:100%;margin-top:.5rem;">Actualizar contraseña</button>
+    </form>
+    <hr class="modal-divider"/>
+    <div class="modal-footer">
+      <a href="#" onclick="closeModal('recover');openModal('login');return false;">Volver a iniciar sesión</a>
+    </div>
+  </div>
+</div>
+
+<!-- REGISTER -->
+
+<div class="modal-overlay" id="modal-register">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('register')">✕</button>
+    
+    <div id="step-1-form">
+      <h2>Crea tu cuenta</h2>
+      <p>Únete a miles de estudiantes de secundaria</p>
+      
+      <form id="form-registro-cloud" onsubmit="guardarCuentaDirecto(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" id="reg-nombre" placeholder="Ejm: Jamer Erick" required/>
+          </div>
+          <div class="form-group">
+            <label>Apellido</label>
+            <input type="text" id="reg-apellido" placeholder="Ejm: Cordova Chacon" required/>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Correo electrónico</label>
+          <input type="email" id="reg-email" placeholder="micorreo@gmail.com" required/>
+        </div>
+        
+        <div class="form-group">
+          <label>Número de Celular <span style="font-weight: normal; color: var(--muted);">(Opcional)</span></label>
+          <input type="tel" id="reg-phone" placeholder="Ejm: 910292775" pattern="[0-9]+" minlength="9" maxlength="9"/>
+        </div>
+
+        <div class="form-group">
+          <label>Grado actual</label>
+          <select id="reg-grado">
+            <option value="1">1er Grado de Secundaria</option>
+            <option value="2">2do Grado de Secundaria</option>
+            <option value="3">3er Grado de Secundaria</option>
+            <option value="4">4to Grado de Secundaria</option>
+            <option value="5">5to Grado de Secundaria</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Contraseña</label>
+          <input type="password" id="reg-pass" placeholder="Mínimo 8 caracteres" minlength="8" required/>
+        </div>
+        
+        <button type="submit" class="btn-primary" style="width:100%; margin-top:.5rem;">Crear cuenta gratis →</button>
+      </form>
+
+      <hr class="modal-divider"/>
+      <div class="modal-footer">
+        ¿Ya tienes cuenta? <a href="#" onclick="closeModal('register');openModal('login');return false;">Inicia sesión</a>
+      </div>
+    </div>
+
+    <!-- Paso de verificación por código eliminado: el registro es directo -->
+
+
+    <div id="step-3-success" style="display: none; text-align: center; padding: 2rem 0;">
+      <div style="font-size: 4rem; margin-bottom: 1rem;" class="i-emoji">🎉</div>
+      <h2 style="font-family: 'Syne', sans-serif; color: var(--accent1); margin-bottom: 1rem;">¡Registro Exitoso!</h2>
+      <p style="color: var(--muted); margin-bottom: 2rem;">Tu correo ha sido verificado y tu cuenta está lista en la nube.</p>
+      <button type="button" class="btn-primary" onclick="finalizarRegistro()" style="width: 100%;">
+        Ir a Iniciar Sesión
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════ SOPORTE / PANEL ADMIN ══════════════ -->
+<div class="modal-overlay" id="modal-soporte">
+  <div class="modal" style="max-width: 980px; width: 95%;">
+    <button class="modal-close" onclick="closeModal('soporte')">✕</button>
+
+    <!-- Paso 1: Login admin -->
+    <div id="soporte-login">
+      <h2>🛠️ Panel de Soporte</h2>
+      <p>Acceso restringido. Ingresa la clave de administrador para continuar.</p>
+      <form onsubmit="soporteLogin(event)">
+        <div class="form-group">
+          <label>Clave de administrador</label>
+          <div style="position:relative;">
+            <input type="password" id="soporte-pass" placeholder="Clave secreta" required style="width:100%;padding-right:2.5rem;"/>
+            <button type="button" onclick="togglePasswordVisibility('soporte-pass','toggle-soporte-pass')" id="toggle-soporte-pass"
+              aria-label="Mostrar u ocultar contraseña"
+              style="position:absolute;right:.5rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:1.1rem;padding:.25rem;line-height:1;">👁️</button>
+          </div>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%;">Acceder al panel →</button>
+      </form>
+      <p style="margin-top:1rem;font-size:.8rem;color:var(--muted);text-align:center;">Clave por defecto: <code>admin2026</code> (puedes cambiarla en el código en la variable <code>ADMIN_PASSWORD</code>).</p>
+    </div>
+
+    <!-- Paso 2: Panel -->
+    <div id="soporte-panel" style="display:none;">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem;">
+        <h2 style="margin:0;">🛠️ Intranet de Administración</h2>
+        <button class="btn-ghost" onclick="soporteCerrar()">Cerrar sesión admin</button>
+      </div>
+
+      <!-- Tabs -->
+      <div style="display:flex;gap:.5rem;border-bottom:1px solid var(--border);margin-bottom:1rem;flex-wrap:wrap;">
+        <button type="button" class="sop-tab active" data-tab="estudiantes" onclick="soporteTab('estudiantes')">👨‍🎓 Estudiantes</button>
+        <button type="button" class="sop-tab" data-tab="cursos" onclick="soporteTab('cursos')">📚 Cursos</button>
+      </div>
+
+      <!-- Estudiantes -->
+      <div id="sop-tab-estudiantes">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem;flex-wrap:wrap;gap:.5rem;">
+          <input type="text" id="sop-search-est" placeholder="🔍 Buscar por nombre o correo..." onkeyup="renderEstudiantes()" style="flex:1;min-width:220px;"/>
+          <button class="btn-ghost" onclick="cargarEstudiantes()">🔄 Recargar</button>
+        </div>
+        <div style="overflow:auto;max-height:55vh;border:1px solid var(--border);border-radius:8px;">
+          <table style="width:100%;border-collapse:collapse;font-size:.85rem;">
+            <thead style="background:var(--border);position:sticky;top:0;">
+              <tr>
+                <th style="padding:.5rem;text-align:left;">Nombre</th>
+                <th style="padding:.5rem;text-align:left;">Correo</th>
+                <th style="padding:.5rem;text-align:left;">Celular</th>
+                <th style="padding:.5rem;text-align:center;">Grado</th>
+                <th style="padding:.5rem;text-align:left;">Contraseña</th>
+                <th style="padding:.5rem;text-align:left;">Registro</th>
+                <th style="padding:.5rem;text-align:left;">Última conexión</th>
+                <th style="padding:.5rem;text-align:center;">Acción</th>
+              </tr>
+            </thead>
+            <tbody id="sop-tbody-est">
+              <tr><td colspan="8" style="padding:1.5rem;text-align:center;color:var(--muted);">Cargando estudiantes...</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p id="sop-total-est" style="margin-top:.5rem;font-size:.8rem;color:var(--muted);"></p>
+      </div>
+
+      <!-- Cursos -->
+      <div id="sop-tab-cursos" style="display:none;">
+        <div style="background:var(--border);padding:1rem;border-radius:8px;margin-bottom:1rem;">
+          <h3 style="margin-top:0;">➕ Crear nuevo curso</h3>
+          <form onsubmit="crearCurso(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Grado</label>
+                <select id="curso-grado" required>
+                  <option value="1er Grado">1er Grado</option>
+                  <option value="2do Grado">2do Grado</option>
+                  <option value="3er Grado">3er Grado</option>
+                  <option value="4to Grado">4to Grado</option>
+                  <option value="5to Grado">5to Grado</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Ícono (emoji)</label>
+                <input type="text" id="curso-icon" placeholder="📚" maxlength="3" value="📚" required/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Nombre del curso</label>
+              <input type="text" id="curso-nombre" placeholder="Ejm: Robótica Aplicada" required/>
+            </div>
+            <div class="form-group">
+              <label>Descripción</label>
+              <textarea id="curso-desc" placeholder="Describe brevemente el curso..." required></textarea>
+            </div>
+            <button type="submit" class="btn-primary" style="width:100%;">Crear curso →</button>
+          </form>
+        </div>
+
+        <h3>📋 Cursos creados</h3>
+        <div style="display:flex;gap:.5rem;align-items:center;margin-bottom:.5rem;flex-wrap:wrap;">
+          <label style="font-size:.85rem;">Filtrar por grado:</label>
+          <select id="sop-filter-grado" onchange="renderCursos()" style="max-width:200px;">
+            <option value="">Todos</option>
+            <option value="1er Grado">1er Grado</option>
+            <option value="2do Grado">2do Grado</option>
+            <option value="3er Grado">3er Grado</option>
+            <option value="4to Grado">4to Grado</option>
+            <option value="5to Grado">5to Grado</option>
+          </select>
+          <button class="btn-ghost" onclick="cargarCursos()">🔄 Recargar</button>
+        </div>
+        <div id="sop-lista-cursos" style="display:grid;gap:.5rem;max-height:40vh;overflow:auto;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- Firebase SDK (compat) -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
